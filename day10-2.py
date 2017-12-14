@@ -33,7 +33,9 @@ denseHash = []
 for y in range(16):
    result = chain[16*y]
    for z in range(1,16):
-       result ^= chain[(16*y)+z]
-   denseHash.append(hex(result)[2:])
+      result ^= chain[(16*y)+z]
+
+   hexChars = '00' + hex(result)[2:]
+   denseHash.append(hexChars[-2:])
 
 print ''.join(denseHash)
