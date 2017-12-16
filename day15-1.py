@@ -1,5 +1,6 @@
 class Generator:
     def __init__(self, startingValue, factor):
+        self.startingValue = startingValue
         self.previousValue = startingValue
         self.factor = factor
         self.divisor = 2147483647
@@ -23,6 +24,13 @@ while i < n:
     
     aNext, bNext = a.getNext(), b.getNext() 
     #print '%16d %16d' % (aNext, bNext)
+
+    if aNext == a.startingValue:
+        print 'a reached its starting value'
+        break
+    if bNext == b.startingValue:
+        print 'b reached its starting value'
+        break
 
     n1 = bin(aNext)[-16:]
     n2 = bin(bNext)[-16:]
