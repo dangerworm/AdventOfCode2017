@@ -7,10 +7,13 @@ class Generator:
         self.divisor = divisor
 
     def getNext(self):
-        self.value = (self.value * self.multiplier) % 2147483647
+        self.generate()
         while self.value % self.divisor != 0:
-            self.value = (self.value * self.multiplier) % 2147483647
+            self.generate()
         return self.value
+
+    def generate(self):
+        self.value = (self.value * self.multiplier) % 2147483647
 
 # Initial values
 a, b = 277, 349 # Puzzle input
